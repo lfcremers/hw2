@@ -77,6 +77,7 @@ while(<>) { # read in one sentence at a time
 		    if(!(defined $V{$i}{$q}) or $v > $V{$i}{$q}) {
 			# if we found a better previous state, take note!
 			$V{$i}{$q} = $v;  # Viterbi probability
+			print STDOUT $v;
 			$Backtrace{$i}{$q} = $qq; # best previous state
 		    }
 		}

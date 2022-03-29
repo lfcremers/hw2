@@ -115,7 +115,7 @@ for line in sys.stdin:
                     maxpath=parts[values.index(maxval)] + [pos]
                     
                     #add them to the newthreads and newpaths:
-                    newthreads.append(maxval)
+                    newthreads.append(maxval*float(freqs[word][pos]))
                     newpaths.append(maxpath)
                 else:
                     print("ERROR: unknown POS")
@@ -134,7 +134,7 @@ for line in sys.stdin:
                     maxval=max(values)
                     maxpath=parts[values.index(maxval)] + [pos]
 
-                    newthreads.append(maxval)
+                    newthreads.append(maxval*float(freqs[str.lower(word)][pos]))
                     newpaths.append(maxpath)
                 else:
                     print("ERROR: unknown POS")
@@ -154,18 +154,24 @@ for line in sys.stdin:
                     maxval=max(values)
                     maxpath=parts[values.index(maxval)] + [pos]
 
-                    newthreads.append(maxval)
+                    newthreads.append(maxval*float(freqs["OOV"][pos]))
                     newpaths.append(maxpath)
                 else:
                     print("ERROR: unknown POS")
                     raise ValueError()
+
         threads=newthreads
         newthreads=[]
         paths=newpaths
         newpaths=[]
+    
+    #add the ending character:
+    #active_pos=freqs[word]
+
 
     #print(threads)
     [print(i, end=" ") for i in paths[0][1:]]
+    #print(paths)
     print()
 
 
