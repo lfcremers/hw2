@@ -10,7 +10,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
            
-            "args": ["my.hmm", "<", "data/ptb.22.txt", ">", "my.out"]
+            "args": ["data/ptb.2-21.tgs", "data/ptb.2-21.txt", "data/ptb.22.txt", ">", "ptb.23.out"]
         }
     ]
 }
